@@ -1,15 +1,15 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-	testDir: './tests',
+	testDir : "./tests",
 	// ...
-	projects: [
-	{
-		name: 'setup db',
-		testMatch: /global\.setup\.ts/,
-	},
+	projects : [
+		{
+			name : "setup db",
+			testMatch : /global\.setup\.ts/,
+		},
 	// {
 	//   other project
 	// }
-]
+	],
 });

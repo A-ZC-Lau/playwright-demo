@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ts-watch" : "tsc --watch"
+    "ts-watch" : "tsc --watch",
+    "test-e2e" : "playwright test --project=unit",
+    "test-unit" : "playwright test --project=e2e",
+    "test-ui" : "playwright test --ui"
   },
   "author": "",
   "license": "ISC",

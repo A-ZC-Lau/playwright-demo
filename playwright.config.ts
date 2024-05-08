@@ -13,9 +13,13 @@ export default defineConfig({
 			testMatch : /global\.setup\.ts/,
 		},
 		{
-			name : "chromium",
+			name : "e2e",
 			use : { ...devices["Desktop Chrome"] },
 			dependencies : ["setup authentication"],
+		},
+		{
+			name : "unit",
+			use : { ...devices["Desktop Chrome"] },
 		},
 	],
 	// long timeout if there are lots of tests being run

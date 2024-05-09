@@ -16,6 +16,7 @@ module.exports = {
 		"@typescript-eslint",
 	],
 	"rules" : {
+		"@typescript-eslint/no-explicit-any" : ["off"],
 		"@typescript-eslint/no-this-alias" : "off",
 		"@typescript-eslint/explicit-module-boundary-types" : "off",
 		"@typescript-eslint/type-annotation-spacing" : [

@@ -50,7 +50,7 @@ function JobCard (parent : Locator, nth ?: number) {
 }
 export type JobCard = ReturnType<typeof JobCard>
 
-export function Content (parent : Locator) {
+export function Model (parent : Locator) {
 	return {
 		get _root () {
 			return parent.locator(`[aria-label="Search Results"]`);

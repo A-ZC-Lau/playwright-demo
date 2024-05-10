@@ -7,6 +7,9 @@ export default defineConfig({
 	 "Using globalSetup and globalTeardown will not produce traces or artifacts. If you want to produce traces and artifacts, use project dependencies."
 	*/
 	// globalSetup : "./global.setup.ts",\
+	expect : {
+		timeout : 10_000,
+	},
 	reporter : [
 		["list", { printSteps : true }],
 		["html", { open : "on-failure" }],
@@ -17,13 +20,13 @@ export default defineConfig({
 	},
 	projects : [
 		{
-			name : "setup authentication",
-			testMatch : /global\.setup\.ts/,
+			name : "authentication",
+			testMatch : "global.setup.ts",
 		},
 		{
 			name : "e2e",
 			use : { ...devices["Desktop Chrome"] },
-			dependencies : ["setup authentication"],
+			dependencies : ["authentication"],
 		},
 		{
 			name : "unit",
@@ -31,5 +34,5 @@ export default defineConfig({
 		},
 	],
 	// long timeout if there are lots of tests being run
-	timeout : 60_000,
+	timeout : 20_000,
 });

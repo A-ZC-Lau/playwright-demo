@@ -1,6 +1,6 @@
 import { Locator } from "@playwright/test";
 
-export function Content (parent : Locator) {
+export function Model (parent : Locator) {
 	return {
 		get _root () {
 			return parent.locator("#SearchBar");

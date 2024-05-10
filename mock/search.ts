@@ -174,6 +174,7 @@ export const example_search_response = {
 		"solid" : "7be14f2f-fd96-4902-ad39-01a1ff586538",
 	},
 };
+type SearchResponse = typeof example_search_response;
 
 type MakeAdvertiserPayload = {
 	bulletPoints : string[]
@@ -183,9 +184,11 @@ type MakeAdvertiserPayload = {
 	teaser : string
 	title : string
 }
-/** mocking is greatly simplified for time reasons */
+/**
+ * function to create an individual listing to check population and integrity on frontend
+*/
 export function MakeAdvertiser (input : MakeAdvertiserPayload) {
-	return 		{
+	return {
 		"advertiser" : {
 			"id" : "46377355",
 			"description" : "Rounded Consulting",
@@ -214,7 +217,7 @@ export function MakeAdvertiser (input : MakeAdvertiserPayload) {
 		"location" : "Canberra",
 		"locationId" : 1015,
 		"locationWhereValue" : "All Canberra ACT",
-		"id" : 75693911,
+		"id" : 75693911, // need to check if this needs to be different
 		"isPremium" : true,
 		"isStandOut" : true,
 		"jobLocation" : {
@@ -259,5 +262,15 @@ export function MakeAdvertiser (input : MakeAdvertiserPayload) {
 		"workArrangements" : [],
 		"isPrivateAdvertiser" : false,
 		...input,
+	};
+}
+type Advertiser = ReturnType<typeof MakeAdvertiser>;
+/**
+ * use with "MakeAdvertiser" for best results
+ */
+export function CreateSearchResults (advertisers : Advertiser[]) : SearchResponse {
+	return {
+		...example_search_response,
+		data : advertisers,
 	};
 }

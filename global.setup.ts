@@ -1,5 +1,5 @@
 import { test } from "@playwright/test";
-import { routes } from "./routes/github";
+import { routes } from "./routes/seek";
 import { Model } from "./models/login";
 
 const username = process.env.username;

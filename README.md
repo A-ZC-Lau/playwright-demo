@@ -9,11 +9,11 @@ npx playwright install
 
 # run
 
-Unit test
+## Unit test
 
 `npm run test-unit search.spec.ts`
 
-E2E test
+## E2E test
 
 *Note: E2E test doesn't work due to captcha, this is here only as a demo/theory
 

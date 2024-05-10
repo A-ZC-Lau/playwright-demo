@@ -8,6 +8,9 @@ export function Content (parent : Locator) {
 		get keywords () {
 			return this._root.locator("#keywords-input");
 		},
+		get submit () {
+			return this._root.locator(`#searchButton`);
+		},
 		get where () {
 			return this._root.locator("#SearchBar__Where");
 		},

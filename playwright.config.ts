@@ -6,7 +6,15 @@ export default defineConfig({
 	 avoid using globalSetup as it doesn't have traces
 	 "Using globalSetup and globalTeardown will not produce traces or artifacts. If you want to produce traces and artifacts, use project dependencies."
 	*/
-	// globalSetup : "./global.setup.ts",
+	// globalSetup : "./global.setup.ts",\
+	reporter : [
+		["list", { printSteps : true }],
+		["html", { open : "on-failure" }],
+	],
+	use : {
+		trace : "on",
+		video : "on",
+	},
 	projects : [
 		{
 			name : "setup authentication",

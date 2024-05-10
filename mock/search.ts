@@ -179,7 +179,7 @@ type SearchResponse = typeof example_search_response;
 export type MakeAdvertiserInput = {
 	advertiser : string,
 	bulletPoints : string[]
-	displayType : "standard" | "promoted"
+	featured : boolean
 	salary : string
 	teaser : string
 	title : string
@@ -188,7 +188,14 @@ export type MakeAdvertiserInput = {
  * function to create an individual listing to check population and integrity on frontend
 */
 export function MakeAdvertiser (input : MakeAdvertiserInput) {
-	const { advertiser, ...rest } = input; // advertiser excluded to avoid wrong data injection
+	const { advertiser, featured, ...rest } = input; // advertiser excluded to avoid wrong data injection, same with feature
+
+	// "featured" is affected by a few apis
+	const featuredApi = {
+		displayType : featured ? "promoted" : "standard",
+		isPremium : featured,
+		isStandOut : featured,
+	};
 	return {
 		"advertiser" : {
 			"id" : "46377355",
@@ -219,8 +226,6 @@ export function MakeAdvertiser (input : MakeAdvertiserInput) {
 		"locationId" : 1015,
 		"locationWhereValue" : "All Canberra ACT",
 		"id" : 75693911, // need to check if this needs to be different
-		"isPremium" : true,
-		"isStandOut" : true,
 		"jobLocation" : {
 			"label" : "Canberra ACT",
 			"countryCode" : "AU",
@@ -263,6 +268,7 @@ export function MakeAdvertiser (input : MakeAdvertiserInput) {
 		"workArrangements" : [],
 		"isPrivateAdvertiser" : false,
 		...rest,
+		...featuredApi,
 	};
 }
 export type Advertiser = ReturnType<typeof MakeAdvertiser>;

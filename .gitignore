@@ -1,2 +1,4 @@
 node_modules
+playwright-report
 session_storage
+test-results

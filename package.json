@@ -4,17 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "show-report": "playwright show-report",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ts-watch" : "tsc --watch",
-    "test-e2e" : "playwright test --project=unit",
-    "test-unit" : "playwright test --project=e2e",
-    "test-ui" : "playwright test --ui"
+    "ts-watch": "tsc --watch",
+    "test-e2e": "playwright test --project=e2e",
+    "test-unit": "playwright test --project=unit",
+    "test-ui": "playwright test --ui"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.2.0",
-    "@playwright/test": "^1.43.1",
+    "@playwright/test": "^1.44.0",
     "eslint": "^8.57.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",

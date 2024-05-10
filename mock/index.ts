@@ -18,9 +18,15 @@ export function SearchMock () {
  */
 export async function Mock (page : Page, mocks : Record<string, any>) {
 	for (const key in mocks) {
-		await page.route(key, (route) => {
-			if (route.request().method() === "get") {
-				route.fulfill(mocks[key]);
+		await page.route(new RegExp(key), async (route) => {
+			if (route.request().method() === "GET") {
+				await route.fulfill({
+					json : mocks[key],
+					status : 200,
+				});
+			}
+			else {
+				await route.continue();
 			}
 		});
 	}

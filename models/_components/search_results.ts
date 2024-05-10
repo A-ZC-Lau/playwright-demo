@@ -5,7 +5,7 @@ function JobCard (parent : Locator, nth ?: number) {
 	return {
 		get _root () {
 			const l = parent.locator(target);
-			if (nth) {
+			if (typeof nth === "number") {
 				return l.nth(nth);
 			}
 			return l;
@@ -14,8 +14,8 @@ function JobCard (parent : Locator, nth ?: number) {
 			const root = this._root;
 			return {
 				GetBulletPoint (nth ?: number) {
-					const b =root.locator("ul li");
-					if (nth) {
+					const b = root.locator("ul li");
+					if (typeof nth === "number") {
 						return b.nth(nth);
 					}
 					return b;
@@ -48,6 +48,7 @@ function JobCard (parent : Locator, nth ?: number) {
 		},
 	};
 }
+export type JobCard = ReturnType<typeof JobCard>
 
 export function Content (parent : Locator) {
 	return {

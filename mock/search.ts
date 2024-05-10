@@ -176,10 +176,10 @@ export const example_search_response = {
 };
 type SearchResponse = typeof example_search_response;
 
-type MakeAdvertiserPayload = {
+export type MakeAdvertiserInput = {
+	advertiser : string,
 	bulletPoints : string[]
-	description : string,
-	displayType : "standard" | "promoted" | "asdf"
+	displayType : "standard" | "promoted"
 	salary : string
 	teaser : string
 	title : string
@@ -187,11 +187,12 @@ type MakeAdvertiserPayload = {
 /**
  * function to create an individual listing to check population and integrity on frontend
 */
-export function MakeAdvertiser (input : MakeAdvertiserPayload) {
+export function MakeAdvertiser (input : MakeAdvertiserInput) {
+	const { advertiser, ...rest } = input; // advertiser excluded to avoid wrong data injection
 	return {
 		"advertiser" : {
 			"id" : "46377355",
-			"description" : "Rounded Consulting",
+			"description" : input.advertiser,
 		},
 		"automaticInclusion" : false,
 		"branding" : {
@@ -261,10 +262,10 @@ export function MakeAdvertiser (input : MakeAdvertiserPayload) {
 		"workType" : "Contract/Temp",
 		"workArrangements" : [],
 		"isPrivateAdvertiser" : false,
-		...input,
+		...rest,
 	};
 }
-type Advertiser = ReturnType<typeof MakeAdvertiser>;
+export type Advertiser = ReturnType<typeof MakeAdvertiser>;
 /**
  * use with "MakeAdvertiser" for best results
  */

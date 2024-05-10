@@ -10,13 +10,46 @@ function JobCard (parent : Locator, nth ?: number) {
 			}
 			return l;
 		},
+		get bulletpoints () {
+			const root = this._root;
+			return {
+				GetBulletPoint (nth ?: number) {
+					const b =root.locator("ul li");
+					if (nth) {
+						return b.nth(nth);
+					}
+					return b;
+				},
+			};
+		},
+		get company () {
+			return this._root.locator(`[data-automation="jobCompany"]`);
+		},
+		get classification () {
+			return this._root.locator(`[data-automation="jobClassification"]`);
+		},
+		get featured () {
+			return this._root.locator(`[title="Featured"]`);
+		},
+		get location () {
+			return this._root.locator(`[data-automation="jobLocation"]`);
+		},
+		get salary () {
+			return this._root.locator(`[data-automation="jobSalary"]`);
+		},
+		get sub_classification () {
+			return this._root.locator(`[data-automation="jobSubClassification"]`);
+		},
+		get title () {
+			return this._root.locator(`[data-automation="jobTitle"]`);
+		},
 		get teaser () {
-			return this._root.locator(`[data-testid="job-card-teaser"]`);
+			return this._root.locator(`[data-automation="jobShortDescription"]`);
 		},
 	};
 }
 
-export function Results (parent : Locator) {
+export function Content (parent : Locator) {
 	return {
 		get _root () {
 			return parent.locator(`[aria-label="Search Results"]`);

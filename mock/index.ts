@@ -16,9 +16,9 @@ export function SearchMock () {
  * all of these mocks should filter by request method GET, otherwise it will also affect other methods
  * it also makes no sense to mock POST/PUT methods as these are things you probably want to thoroughly check
  */
-export function Mock (page : Page, mocks : Record<string, any>) {
+export async function Mock (page : Page, mocks : Record<string, any>) {
 	for (const key in mocks) {
-		page.route(key, (route) => {
+		await page.route(key, (route) => {
 			if (route.request().method() === "get") {
 				route.fulfill(mocks[key]);
 			}

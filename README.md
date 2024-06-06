@@ -30,3 +30,9 @@ e.g.
 Artifacts are located in `test-results` trace files and videos are always saved to double check that the tests are performing as expected
 
 run `npm run show-report` in order to see trace file (when successful)
+
+# Docker
+
+Build docker image: `docker build -t playwright .`
+
+Run with volume (create if not exists): `docker run --mount source=playwright,target=/artifacts playwright`

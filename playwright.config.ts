@@ -3,8 +3,8 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
 	testDir : "./tests",
 	/**
-	 avoid using globalSetup as it doesn't have traces
-	 "Using globalSetup and globalTeardown will not produce traces or artifacts. If you want to produce traces and artifacts, use project dependencies."
+	avoid using globalSetup as it doesn't have traces
+	"Using globalSetup and globalTeardown will not produce traces or artifacts. If you want to produce traces and artifacts, use project dependencies."
 	*/
 	// globalSetup : "./global.setup.ts",\
 	expect : {
@@ -30,6 +30,11 @@ export default defineConfig({
 		},
 		{
 			name : "unit",
+			use : { ...devices["Desktop Chrome"] },
+		},
+		{
+			name : "backend",
+			testDir : "./tests-backend",
 			use : { ...devices["Desktop Chrome"] },
 		},
 	],

@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "show-report": "playwright show-report",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "playwright test",
     "ts-watch": "tsc --watch",
     "test-e2e": "playwright test --project=e2e",
     "test-unit": "playwright test --project=unit",
-    "test-ui": "playwright test --ui"
+    "test-ui": "playwright test --project=ui",
+    "test-backend": "playwright test --project=backend"
   },
   "author": "",
   "license": "ISC",

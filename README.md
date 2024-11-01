@@ -31,6 +31,8 @@ Artifacts are located in `test-results` trace files and videos are always saved 
 
 run `npm run show-report` in order to see trace file (when successful)
 
+To view demo's trace file, download the trace.zip at `test-results/unit-search-mock-2-cards-and-check-data-unit/trace.zip`, then upload the zip file at `https://trace.playwright.dev/`
+
 # Docker
 
 Build docker image: `docker build -t playwright .`
